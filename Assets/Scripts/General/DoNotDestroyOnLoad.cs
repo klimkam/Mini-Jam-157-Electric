@@ -6,6 +6,6 @@ public class DoNotDestroyOnLoad : MonoBehaviour
 {
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);//David
     }
 }
