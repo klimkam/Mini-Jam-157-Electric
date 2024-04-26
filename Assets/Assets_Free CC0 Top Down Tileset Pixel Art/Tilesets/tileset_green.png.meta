@@ -1647,6 +1647,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tileset_green_72
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396f14a4b5422424191a09e6f4348363
+      internalID: -889412474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1728,6 +1749,7 @@ TextureImporter:
       tileset_green_7: 520242631
       tileset_green_70: -575513727
       tileset_green_71: -1338927583
+      tileset_green_72: -889412474
       tileset_green_8: 385321312
       tileset_green_9: -334736310
   mipmapLimitGroupName: 
