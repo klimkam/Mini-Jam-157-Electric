@@ -9,7 +9,7 @@ public class LineData : ScriptableObject {
     [TextArea] [SerializeField] private string _description;
 
     [field: SerializeField] public AnimationCurve RopeAnimationCurve { get; private set; }
-    [field: SerializeField] public AnimationCurve RopProgressionCurve { get; private set; }
+    [field: SerializeField] public AnimationCurve RopeProgressionCurve { get; private set; }
     [field: SerializeField] public float StartWazeSize { get; private set; }
     [field: SerializeField] public float RopeProgressionSpeed { get; private set; }
     [field: SerializeField] public int RopeDetailAmount { get; private set; }
