@@ -97,6 +97,11 @@ public class Arena
         (_eastConnectorIndex, isEastWallActive) = TurnOnSpecificWall(color, 3);
 
         _activeConnectorAmount = isNorthWallActive + isSouthWallActive + isWestWallActive + isEastWallActive;
+
+        if (_activeConnectorAmount < 2)
+        {
+            TurnOnRandomWallConnector();
+        }
     }
 
     private (int, int) TurnOnSpecificWall(EColor color, int wallSide)
