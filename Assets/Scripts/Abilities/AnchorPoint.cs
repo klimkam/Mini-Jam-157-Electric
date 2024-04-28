@@ -26,7 +26,8 @@ public class AnchorPoint : MonoBehaviour {
     public void OnHook(PlayerController player) {
         if (connector.GetColor() != Color.white) {
             print(connector.GetColor() + " " + connector.transform.parent.name);
-            
+            connector.SetConnectionState(true);
+
             return;
         }
         player.DeactivateAllLines();

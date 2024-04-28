@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private const byte CONNECTOR_PER_WALL = 5;
     private const byte MINIMUM_ACTIVE_FLOOR = 5;
     private const byte MAXIMUM_ACTIVE_FLOOR = 30;
-    private const float TIME_PER_CONNECTOR = 2.5f;
+    private const float TIME_PER_CONNECTOR = 1.0f;
     private const float START_TIME = 30.0f;
 
     private Vector3 START_POSITION = new Vector3(0, 0, -0.1f);
@@ -177,23 +177,21 @@ public class GameManager : MonoBehaviour
 
     private void CalculateConnections()
     {
-        if (_connectedLights == _activeConnectorAmount)
+        if (GetAllConnectedWalls() == _activeConnectorAmount)
         {
             _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
 
             _score += _activeConnectorAmount;
             _activeConnectorAmount = 0;
-            _connectedLights = 0;
+            ResetAllWalls();
+
             _player.GetComponent<PlayerController>().DeactivateAllLines();
         }
     }
 
     private void WallSequence()
     {
-        ResetWall(_northConnectorWall);
-        ResetWall(_southConnectorWall);
-        ResetWall(_westConnectorWall);
-        ResetWall(_eastConnectorWall);
+        ResetAllWalls();
 
         TurnOnRandomWallConnector();
 
@@ -203,6 +201,38 @@ public class GameManager : MonoBehaviour
         RenderWallConnectors(_eastConnectorWall);
 
         RenderTargetColor();
+    }
+
+    private void ResetAllWalls()
+    {
+        ResetWall(_northConnectorWall);
+        ResetWall(_southConnectorWall);
+        ResetWall(_westConnectorWall);
+        ResetWall(_eastConnectorWall);
+    }
+
+    private int GetAllConnectedWalls()
+    {
+        int amount = 0;
+
+        if (_northConnectorIndex > -1)
+        {
+            amount += (_northConnectorWall[_northConnectorIndex].GetComponent<WallConnector>().GetConnectionState()) ? 1 : 0;
+        }
+        if (_southConnectorIndex > -1)
+        {
+            amount += (_southConnectorWall[_southConnectorIndex].GetComponent<WallConnector>().GetConnectionState()) ? 1 : 0;
+        }
+        if (_westConnectorIndex > -1)
+        {
+            amount += (_westConnectorWall[_westConnectorIndex].GetComponent<WallConnector>().GetConnectionState()) ? 1 : 0;
+        }
+        if (_eastConnectorIndex > -1)
+        {
+            amount += (_eastConnectorWall[_eastConnectorIndex].GetComponent<WallConnector>().GetConnectionState()) ? 1 : 0;
+        }
+
+        return amount;
     }
 
     private void RenderWallConnectors(List<GameObject> connectors)
@@ -341,6 +371,14 @@ public class GameManager : MonoBehaviour
     private void SetRandomActiveFloorTile()
     {
         _activeFloorTiles = Random.Range(MINIMUM_ACTIVE_FLOOR, MAXIMUM_ACTIVE_FLOOR + 1);
+    }
+
+    public void ResetActiveWallConnectors()
+    {
+        if (_northConnectorIndex > -1) _northConnectorWall[_northConnectorIndex].GetComponent<WallConnector>().SetConnectionState(false);
+        if (_southConnectorIndex > -1) _southConnectorWall[_southConnectorIndex].GetComponent<WallConnector>().SetConnectionState(false);
+        if (_westConnectorIndex > -1) _westConnectorWall[_westConnectorIndex].GetComponent<WallConnector>().SetConnectionState(false);
+        if (_eastConnectorIndex > -1) _eastConnectorWall[_eastConnectorIndex].GetComponent<WallConnector>().SetConnectionState(false);
     }
 
     /*
