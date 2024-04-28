@@ -6,20 +6,29 @@ public class Line : MonoBehaviour {
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private LineData lineData;
     [SerializeField] private ERelationType directionType;
+    [SerializeField] private PlayerController _playerController;
     
     private Vector2 _grapplePoint, _grappleDistanceVector;
     private float _moveTime, _waveSize;
     private bool _canGrapple, _canStartRopeAnimation;
 
+    
+    
     private void OnEnable() {
         Initialize();
         SetGrapplePoint();
     }
 
     private void Initialize() {
+        if (_playerController == null) {
+            _playerController = transform.parent.GetComponent<PlayerController>();
+        }
+        
         _moveTime = 0;
         lineRenderer.positionCount = lineData.RopeDetailAmount;
         _waveSize = lineData.StartWazeSize;
+        _grapplePoint = Vector2.zero;
+        _canStartRopeAnimation = false;
     }
 
     private void Update() {
@@ -34,29 +43,27 @@ public class Line : MonoBehaviour {
 
         var hits = Physics2D.RaycastAll(origin.position, GetShootingDirection(), 100);
 
+        Debug.DrawLine(origin.position,GetShootingDirection() + (Vector2)origin.position,Color.magenta);
+        
         if (hits.Length > 1) {
             foreach (var hit in hits) {
-                if ((hit.transform != null) && (hit.transform.gameObject.layer != origin.gameObject.layer)) {
+                if ((hit.transform != null) && (hit.transform.gameObject.layer != origin.gameObject.layer) && hit.transform.gameObject.layer != LayerMask.NameToLayer("Walls")) {
                     var objectHit = hit.transform.GetComponent<AnchorPoint>();
 
                     if (objectHit) {
-                        objectHit.OnHook();
                         _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
+                        objectHit.OnHook(_playerController);
                         print("Hooked wall connector");
-                    }
-                    else {
-                        _grapplePoint = hit.collider.ClosestPoint(hit.point);
+                        _grappleDistanceVector = _grapplePoint - (Vector2)origin.position;
+                        ShootRope();
+                        return;
                     }
                 }
             }
             
         }
-        else {
-            _grapplePoint = origin.position * (GetShootingDirection() * 10);
-        }
+        _playerController.DeactivateAllLines();
         
-        _grappleDistanceVector = _grapplePoint - (Vector2)origin.position;
-        ShootRope();
     }
 
     private Vector2 GetShootingDirection() {
