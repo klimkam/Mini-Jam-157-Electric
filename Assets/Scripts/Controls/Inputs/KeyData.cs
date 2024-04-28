@@ -8,13 +8,10 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "newKey", menuName = "Data/Inputs/Key")]
 public class KeyData : ScriptableObject {
     [SerializeField] private KeyCode _key;
-    [SerializeField] private float _lastInputTime;
-    private const float _doubleTapThreshold = 0.5f;
-
-    private bool lastFrame;
     
+    private float doubleTapCooldown = 0;
+
     public bool IsKeyDown() {
-        SetLastInputTime();
         return Input.GetKey(_key);
     }
 
@@ -22,21 +19,26 @@ public class KeyData : ScriptableObject {
         return Input.GetKeyUp(_key);
     }
 
-    public bool IsKeyThisFrame() {
-        SetLastInputTime();
-        return Input.GetKey(_key);
+    public bool IsKeyDownThisFrame() {
+        return Input.GetKeyDown(_key);
     }
 
     public bool HasKeyDoubleTapped() {
-        float timeSinceLastPress = Time.time - _lastInputTime;
-        return timeSinceLastPress <= _doubleTapThreshold;
+        if (doubleTapCooldown > 0) {
+            doubleTapCooldown -=  Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(_key)) {
+            if (doubleTapCooldown > 0)
+            {
+                doubleTapCooldown = 0;
+                return true;
+            }
+
+            doubleTapCooldown = 0.3f;
+        }
+
+        return false;
     }
     
-
-    private void SetLastInputTime() {
-        if (Input.GetKeyDown(_key) && lastFrame == false) {
-            _lastInputTime = Time.time;
-        }
-        lastFrame = Input.GetKeyDown(_key);
-    }
 }
