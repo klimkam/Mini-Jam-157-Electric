@@ -37,7 +37,7 @@ public class Line : MonoBehaviour {
 
             if (objectHit) {
                 objectHit.OnHook();
-                _grapplePoint = objectHit.transform.position;
+                _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
             }
         }
         else {
