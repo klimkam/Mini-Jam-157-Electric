@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
         direction.Normalize();
 
-        _rigidbody2D.velocity = speed * 20 * Time.deltaTime * (Vector3)direction;
+        _rigidbody2D.velocity = speed * 10 * Time.deltaTime * (Vector3)direction;
     }
 
     private void HandleRopeShooting()
