@@ -69,11 +69,13 @@ public class GameManager : MonoBehaviour
     private int _highscore = 0;
     private float _floorTimer = 0.0f;
 
+   
     // Start is called before the first frame update
     void Start()
     {
         //Render the Main Menu Panel
         RenderMainMenu();
+        
     }
 
     // Update is called once per frame
@@ -171,6 +173,7 @@ public class GameManager : MonoBehaviour
         if (_floorTimer >= 6.0f)
         {
             TurnOffActiveFloorTile();
+            _floorTimer -= 6.0f;
         }
 
         if (_activeConnectorAmount == 0)
@@ -187,6 +190,11 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+    }
+    
+    public List<GameObject> GetGameField()
+    {
+        return _floorTile;
     }
 
     private void CalculateConnections()
@@ -408,7 +416,8 @@ public class GameManager : MonoBehaviour
             int line = Random.Range(0, FLOOR_SIZE);
             int row = Random.Range(0, FLOOR_SIZE);
 
-            _floorTile[line * 11 + row].GetComponent<FloorCell>().ChargeFloor();
+            var floor = _floorTile[line * 11 + row].GetComponent<FloorCell>();
+            floor.ChargeFloor();
         }
     }
 
