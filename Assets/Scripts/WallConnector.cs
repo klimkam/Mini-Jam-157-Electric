@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WallConnector
+public class WallConnector : MonoBehaviour
 {
     private EColor _color;
 

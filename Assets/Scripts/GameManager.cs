@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,13 +36,17 @@ public class GameManager : MonoBehaviour
             _arena.ChargeUpRandomFloorTile();
         }
 
-        RenderWallConnectors();
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+
+            RenderWallConnectors();
+        }
         RenderTiles();
     }
 
     private void RenderWallConnectors()
     {
-
+        
     }
 
     private void ResetTile()
@@ -68,6 +70,6 @@ public class GameManager : MonoBehaviour
     private void RenderTile(GameObject tile)
     {
         gameObject.SetActive(true);
-        tile.GetComponent<Image>().color = Color.blue;
+        tile.GetComponent<SpriteRenderer>().color = Color.blue;
     }
 }

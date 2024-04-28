@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 814295879776345338}
   - component: {fileID: 7004584993789348505}
   m_Layer: 0
-  m_Name: Mini jam-Bidule
+  m_Name: Bidule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5110014205885660382}
   - component: {fileID: 6350217420231852758}
   m_Layer: 0
-  m_Name: Mini jam-LightCircle
+  m_Name: LightCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 4389886763146746873}
   - component: {fileID: 7052698128514263244}
   m_Layer: 0
-  m_Name: Mini jam-LightIndicator
+  m_Name: LightIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
