@@ -88,9 +88,8 @@ public class GameManager : MonoBehaviour
             EndGame();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && !_isPlaying)
         {
-
             StartGame();
         }
 
@@ -108,6 +107,7 @@ public class GameManager : MonoBehaviour
         _score = 0;
 
         _mainMenu.SetActive(false);
+        _player.GetComponent<PlayerController>().DeactivateAllLines();
 
         _isPlaying = true;
     }
@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour
             _score += _activeConnectorAmount;
             _activeConnectorAmount = 0;
             _connectedLights = 0;
+            _player.GetComponent<PlayerController>().DeactivateAllLines();
         }
 
         RenderScoreAndTimer();
