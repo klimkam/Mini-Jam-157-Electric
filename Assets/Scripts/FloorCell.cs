@@ -1,4 +1,6 @@
-public class FloorCell
+using UnityEngine;
+
+public class FloorCell : MonoBehaviour
 {
     private readonly int _xPos;
     private readonly int _yPos;
