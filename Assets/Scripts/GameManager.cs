@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private const float TIME_PER_CONNECTOR = 2.5f;
     private const float START_TIME = 90.0f;
 
+    private Vector3 START_POSITION = new Vector3(0, 0, -0.1f);
+
     [SerializeField]
     private List<GameObject> _northConnectorWall;
     [SerializeField]
@@ -26,18 +28,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> _floorTile;
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject _mainMenu;
-    
-    [SerializeField] 
+    [SerializeField]
     private GameObject _pauseScreen;
-    
-    [FormerlySerializedAs("_highestScore")] [SerializeField] 
+
+    [SerializeField]
+    private GameObject _player;
+
+    [SerializeField]
     private TMP_Text _highestScoreText;
-    
-    [SerializeField] 
+    [SerializeField]
+    private TMP_Text _currentScoreText;
+    [SerializeField]
     private TMP_Text _remainingTimeText;
-    
+
     [SerializeField]
     private int _activeConnectorAmount = 0;
     [SerializeField]
@@ -85,60 +90,24 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            
+
             StartGame();
         }
 
         if (_isPlaying)
         {
-            _remainingTime -= Time.deltaTime;
-
-            //Debug.Log(_remainingTime);
-
-            if (_activeConnectorAmount == 0)
-            {
-                WallSequence();
-            }
-
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                _connectedLights++;
-            }
-
-            if (_connectedLights == _activeConnectorAmount)
-            {
-                _score += _activeConnectorAmount;
-                _activeConnectorAmount = 0;
-                _connectedLights = 0;
-
-                _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
-                
-                Debug.Log(_score);
-
-            }
-            
-            RenderTimer();
-
-            if (_remainingTime < 0.1)
-            {
-                EndGame();
-            }
+            Playing();
         }
-    }
-
-    private void RenderMainMenu()
-    {
-        _mainMenu.gameObject.SetActive(true);
-        _highestScoreText.text = _highscore.ToString();
-        //TODO Walid do your magic here!
     }
 
     private void StartGame()
     {
+        _player.transform.position = START_POSITION;
+
         _remainingTime = START_TIME;
         _score = 0;
-        
-        _mainMenu.gameObject.SetActive(false);
+
+        _mainMenu.SetActive(false);
 
         _isPlaying = true;
     }
@@ -151,7 +120,7 @@ public class GameManager : MonoBehaviour
         {
             _highscore = _score;
         }
-        
+
         RenderMainMenu();
     }
 
@@ -163,7 +132,14 @@ public class GameManager : MonoBehaviour
         _pauseScreen.SetActive(_isGamePaused);
     }
 
-    private void RenderTimer()
+    private void RenderMainMenu()
+    {
+        _mainMenu.SetActive(true);
+        _highestScoreText.text = _highscore.ToString();
+        //TODO Walid do your magic here!
+    }
+
+    private void RenderScoreAndTimer()
     {
         int minutes = (int)_remainingTime / 60;
         int seconds = (int)_remainingTime % 60;
@@ -171,9 +147,46 @@ public class GameManager : MonoBehaviour
         string displaySeconds = (seconds < 10) ? "0" + seconds : seconds.ToString();
 
         _remainingTimeText.text = displayMinutes + ":" + displaySeconds;
-        
+
+        _currentScoreText.text = _score.ToString();
     }
-    
+
+    private void Playing()
+    {
+        _remainingTime -= Time.deltaTime;
+
+        if (_activeConnectorAmount == 0)
+        {
+            WallSequence();
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            _connectedLights++;
+        }
+
+        if (_connectedLights == _activeConnectorAmount)
+        {
+            _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
+
+            _score += _activeConnectorAmount;
+            _activeConnectorAmount = 0;
+            _connectedLights = 0;
+        }
+
+        RenderScoreAndTimer();
+
+        if (_remainingTime < 0.1)
+        {
+            EndGame();
+        }
+    }
+
+    private void Calculate()
+    {
+
+    }
+
     private void WallSequence()
     {
         ResetWall(_northConnectorWall);
