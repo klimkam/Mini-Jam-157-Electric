@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8be9cc06958e142a1383b6805c1616, type: 3}
+  m_Name: QWERTY_Map
+  m_EditorClassIdentifier: 
+  upKey: {fileID: 11400000, guid: 84b125cddda43834eb2e52bcf205b90d, type: 2}
+  downKey: {fileID: 11400000, guid: c9aa1fc3abaf13d47a642278a9ac9cf6, type: 2}
+  leftKey: {fileID: 11400000, guid: fc193ab917d5d97448209092e119dd1d, type: 2}
+  rightKey: {fileID: 11400000, guid: af2303c36175f254bad5afb207b27101, type: 2}
+  menuKey: {fileID: 11400000, guid: 220b9bbc90d117a49bd060818533fb65, type: 2}
+  ropeUpKey: {fileID: 11400000, guid: 14c409951b1a64145ae6808529a12baa, type: 2}
+  ropeDownKey: {fileID: 11400000, guid: e11cb20324a9f6440ada9c381544144a, type: 2}
+  ropeLeftKey: {fileID: 11400000, guid: 8d176a77159c8684781e168f7e4293bb, type: 2}
+  ropeRightKey: {fileID: 11400000, guid: d9c47abbeab75b342b047cc9a47b00e4, type: 2}
