@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private const byte FLOOR_SIZE = 11;
-    private const byte WALL_AMOUNT = 4;
     private const byte CONNECTOR_PER_WALL = 5;
     private const byte MINIMUM_ACTIVE_FLOOR = 5;
     private const byte MAXIMUM_ACTIVE_FLOOR = 30;
+    private const float TIME_PER_CONNECTOR = 2.5f;
+    private const float START_TIME = 60.0f;
 
     [SerializeField]
     private List<GameObject> _northConnectorWall;
@@ -39,34 +40,102 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject _targetColor;
 
+    private bool _isPlaying;
+    private float _remainingTime;
+    private int _connectedLights = 0;
+    private int _score = 0;
+    private int _highscore = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Render the Main Menu Panel
+        RenderMainMenu();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ResetTile();
-            ResetWall(_northConnectorWall);
-            ResetWall(_southConnectorWall);
-            ResetWall(_westConnectorWall);
-            ResetWall(_eastConnectorWall);
+            _isPlaying = false;
 
-
-            TurnOnRandomWallConnector();
-            //ChargeUpRandomFloorTile();
-
-
-            RenderWallConnectors(_northConnectorWall);
-            RenderWallConnectors(_southConnectorWall);
-            RenderWallConnectors(_westConnectorWall);
-            RenderWallConnectors(_eastConnectorWall);
-
-            RenderTargetColor();
+            //Render the Main Menu Panel
+            RenderMainMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            StartGame();
+        }
+
+        if (_isPlaying)
+        {
+            _remainingTime -= Time.deltaTime;
+
+            Debug.Log(_remainingTime);
+
+            if (_activeConnectorAmount == 0)
+            {
+                WallSequence();
+            }
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                _connectedLights++;
+            }
+
+            if (_connectedLights == _activeConnectorAmount)
+            {
+                _score += _activeConnectorAmount;
+                _activeConnectorAmount = 0;
+                _connectedLights = 0;
+
+                _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
+            }
+
+            if (_remainingTime < 0.1)
+            {
+                EndGame();
+            }
+        }
+    }
+
+    private void RenderMainMenu()
+    {
+        //TODO Walid do your magic here!
+    }
+
+    private void StartGame()
+    {
+        _remainingTime = START_TIME;
+        _score = 0;
+
+        _isPlaying = true;
+    }
+
+    private void EndGame()
+    {
+        _isPlaying = false;
+
+        //Render Main Menu Panel
+    }
+
+    private void WallSequence()
+    {
+        ResetWall(_northConnectorWall);
+        ResetWall(_southConnectorWall);
+        ResetWall(_westConnectorWall);
+        ResetWall(_eastConnectorWall);
+
+        TurnOnRandomWallConnector();
+
+        RenderWallConnectors(_northConnectorWall);
+        RenderWallConnectors(_southConnectorWall);
+        RenderWallConnectors(_westConnectorWall);
+        RenderWallConnectors(_eastConnectorWall);
+
+        RenderTargetColor();
     }
 
     private void RenderWallConnectors(List<GameObject> connectors)
@@ -132,7 +201,7 @@ public class GameManager : MonoBehaviour
 
     private void RenderTargetColor()
     {
-       _targetColor.GetComponent<Image>().color = _targetColor.GetComponent<WallConnector>().GetColor();
+        _targetColor.GetComponent<Image>().color = _targetColor.GetComponent<WallConnector>().GetColor();
     }
 
     /*
