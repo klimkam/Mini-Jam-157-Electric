@@ -17949,11 +17949,15 @@ PrefabInstance:
     - target: {fileID: 3095712831972165931, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_Sprite
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 1179634162, guid: 2d6f1fec3342f634ebd07253ab7e3f83, type: 3}
     - target: {fileID: 3095712831972165931, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+=======
+      objectReference: {fileID: 570343554, guid: e826f86cfa71a874c8298ab498558e0e, type: 3}
+>>>>>>> Stashed changes
     - target: {fileID: 3095712831972165931, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_SortingOrder
       value: 8
