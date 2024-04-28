@@ -499,12 +499,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: e826f86cfa71a874c8298ab498558e0e, type: 3}
+  m_Sprite: {fileID: 1179634162, guid: 2d6f1fec3342f634ebd07253ab7e3f83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 21, y: 21}
+  m_Size: {x: 17.94, y: 20.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyMapData: {fileID: 11400000, guid: 02e18a217112a7c48b324071bed1009f, type: 2}
   speed: 8
+  _rigidbody2D: {fileID: 0}
   description: 'Be wary, the line array order is case dependant. 0: Up, 1: Down,
     2: Left, 3: Right'
   lines:
