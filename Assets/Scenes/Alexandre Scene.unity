@@ -458,6 +458,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator2
@@ -1019,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator3
@@ -1514,6 +1522,10 @@ PrefabInstance:
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
@@ -2482,6 +2494,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator5
@@ -2565,6 +2581,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
@@ -2868,6 +2888,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
@@ -5430,6 +5454,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator3
@@ -5594,6 +5622,10 @@ PrefabInstance:
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
@@ -6256,6 +6288,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator3
@@ -6698,6 +6734,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
@@ -7682,6 +7722,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator1
@@ -8275,6 +8319,10 @@ PrefabInstance:
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
@@ -9835,7 +9883,7 @@ Transform:
   m_GameObject: {fileID: 1283645865}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 0.89, y: 0.89, z: 0.89}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10329,6 +10377,10 @@ PrefabInstance:
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
@@ -12454,6 +12506,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator3
@@ -13559,6 +13615,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator4
@@ -14117,6 +14177,10 @@ PrefabInstance:
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
@@ -15866,6 +15930,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator2
@@ -16218,6 +16286,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator2
@@ -16495,6 +16567,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name
       value: LightIndicator5
@@ -16654,6 +16730,10 @@ PrefabInstance:
     - target: {fileID: 4530126093530522887, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: anchorPointType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6792516519975219091, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: m_Name

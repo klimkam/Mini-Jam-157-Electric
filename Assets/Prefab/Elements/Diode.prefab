@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2837941345817516882}
   - component: {fileID: 642298922877606660}
+  - component: {fileID: 6503543874099191228}
   m_Layer: 0
   m_Name: HookPoint
   m_TagString: Untagged
@@ -67,6 +68,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -1.75}
   serializedVersion: 2
   m_Radius: 7
+--- !u!114 &6503543874099191228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656947648689061336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6bff589cc28f548bb1969b8f3926a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorPointType: 4
+  connector: {fileID: 0}
 --- !u!1 &2283914599434085952
 GameObject:
   m_ObjectHideFlags: 0
