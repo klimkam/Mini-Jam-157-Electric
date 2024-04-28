@@ -32,7 +32,7 @@ public class Line : MonoBehaviour {
     private void SetGrapplePoint() {
         var hit = Physics2D.Raycast(origin.position, GetShootingDirection(), 100); //Arbitrary distance 
 
-        if (hit.transform != null) {
+        if ((hit.transform != null) && (hit.transform.gameObject.layer != origin.gameObject.layer)) {
             var objectHit = hit.transform.GetComponent<AnchorPoint>();
 
             if (objectHit) {
@@ -87,8 +87,9 @@ public class Line : MonoBehaviour {
             Vector2 offset = Vector2.Perpendicular(_grappleDistanceVector).normalized * (lineData.RopeAnimationCurve.Evaluate(delta) * _waveSize);
             Vector2 targetPosition = Vector2.Lerp((Vector2)origin.position + offset, _grapplePoint + offset, delta);
             Vector2 currentPosition = Vector2.Lerp(origin.position, targetPosition, lineData.RopeProgressionCurve.Evaluate(_moveTime) * lineData.RopeProgressionSpeed);
-    
-            lineRenderer.SetPosition(i, currentPosition);
+
+            Vector3 currentPos = new Vector3(currentPosition.x, currentPosition.y, -1);
+            lineRenderer.SetPosition(i, currentPos);
             //Player.Hook.transform.position = currentPosition;
 
             UpdateHookPosition(GetShootingDirection());
