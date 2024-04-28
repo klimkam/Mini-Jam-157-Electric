@@ -165,15 +165,7 @@ public class GameManager : MonoBehaviour
             _connectedLights++;
         }
 
-        if (_connectedLights == _activeConnectorAmount)
-        {
-            _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
-
-            _score += _activeConnectorAmount;
-            _activeConnectorAmount = 0;
-            _connectedLights = 0;
-            _player.GetComponent<PlayerController>().DeactivateAllLines();
-        }
+        CalculateConnections();
 
         RenderScoreAndTimer();
 
@@ -183,9 +175,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Calculate()
+    private void CalculateConnections()
     {
+        if (_connectedLights == _activeConnectorAmount)
+        {
+            _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
 
+            _score += _activeConnectorAmount;
+            _activeConnectorAmount = 0;
+            _connectedLights = 0;
+            _player.GetComponent<PlayerController>().DeactivateAllLines();
+        }
     }
 
     private void WallSequence()
