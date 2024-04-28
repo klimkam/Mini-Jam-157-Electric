@@ -3,6 +3,7 @@ using UnityEngine;
 public class WallConnector : MonoBehaviour
 {
     private EColor _color;
+    
 
     public WallConnector()
     {
