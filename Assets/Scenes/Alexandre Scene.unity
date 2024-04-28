@@ -4084,7 +4084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2971007384324628613, guid: 1b7b8f7c8b424dd4e91f57976b793497, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3253346886764091853, guid: 1b7b8f7c8b424dd4e91f57976b793497, type: 3}
       propertyPath: m_Layer
@@ -17774,7 +17774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: speed
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: dashSpeed
