@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 854719218}
   - component: {fileID: 854719217}
   - component: {fileID: 854719216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae79e58edf4f4a44eb7d6c1208caa505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyMapData: {fileID: 11400000, guid: 02e18a217112a7c48b324071bed1009f, type: 2}
+  upLine: {fileID: 1077068996}
 --- !u!212 &854719217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -468,7 +470,7 @@ GameObject:
   - component: {fileID: 1077068991}
   - component: {fileID: 1077068993}
   - component: {fileID: 1077068996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Line North
   m_TagString: Untagged
   m_Icon: {fileID: 0}

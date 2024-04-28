@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class PlayerTestingRopeShoot : MonoBehaviour
 {
-    
+    public KeyMapData KeyMapData;
+    public Line upLine;
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
+    private void Update() {
+        if (KeyMapData.upKey.IsKeyDown())
+        {
+            upLine.gameObject.SetActive(true);
+        }
+        if (KeyMapData.menuKey.IsKeyDown())
+        {
+            upLine.gameObject.SetActive(false);
+        }
     }
 }

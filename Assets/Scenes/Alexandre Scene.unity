@@ -5425,6 +5425,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690737236}
   m_CullTransparentMesh: 1
+--- !u!50 &702507304 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6412506155964004046, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+  m_PrefabInstance: {fileID: 3065425054963048766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &709497781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14204,7 +14209,7 @@ GameObject:
   - component: {fileID: 1762577267}
   - component: {fileID: 1762577266}
   - component: {fileID: 1762577265}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14894,7 +14899,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -17766,6 +17771,22 @@ PrefabInstance:
     - target: {fileID: 5681716089033558405, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: speed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: dashSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: _rigidbody2D
+      value: 
+      objectReference: {fileID: 702507304}
+    - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8004090855702514868, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_LocalPosition.x
