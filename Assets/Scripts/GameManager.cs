@@ -160,11 +160,6 @@ public class GameManager : MonoBehaviour
             WallSequence();
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            _connectedLights++;
-        }
-
         CalculateConnections();
 
         RenderScoreAndTimer();

@@ -17,11 +17,6 @@ public class PlayerController : MonoBehaviour
         if (_lockPlayerMovement) return;
         HandleMovement();
         HandleRopeShooting();
-
-        if (keyMapData.menuKey.IsKeyDown())
-        {
-            DeactivateAllLines();
-        }
     }
 
     private void HandleMovement()
@@ -39,10 +34,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleRopeShooting()
     {
-        if (keyMapData.ropeUpKey.IsKeyDown()) lines[0].gameObject.SetActive(true);
-        if (keyMapData.ropeDownKey.IsKeyDown()) lines[1].gameObject.SetActive(true);
-        if (keyMapData.ropeLeftKey.IsKeyDown()) lines[2].gameObject.SetActive(true);
-        if (keyMapData.ropeRightKey.IsKeyDown()) lines[3].gameObject.SetActive(true);
+        if (keyMapData.ropeUpKey.IsKeyDownThisFrame()) lines[0].gameObject.SetActive(true);
+        if (keyMapData.ropeDownKey.IsKeyDownThisFrame()) lines[1].gameObject.SetActive(true);
+        if (keyMapData.ropeLeftKey.IsKeyDownThisFrame()) lines[2].gameObject.SetActive(true);
+        if (keyMapData.ropeRightKey.IsKeyDownThisFrame()) lines[3].gameObject.SetActive(true);
     }
 
     public void LockPlayerMovement()
