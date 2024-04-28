@@ -15,11 +15,16 @@ public class KeyData : ScriptableObject {
     
     public bool IsKeyDown() {
         SetLastInputTime();
-        return Input.GetKeyDown(_key);
+        return Input.GetKey(_key);
     }
 
     public bool IsKeyLifted() {
         return Input.GetKeyUp(_key);
+    }
+
+    public bool IsKeyThisFrame() {
+        SetLastInputTime();
+        return Input.GetKey(_key);
     }
 
     public bool HasKeyDoubleTapped() {
