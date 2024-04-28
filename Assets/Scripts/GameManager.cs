@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private const byte MINIMUM_ACTIVE_FLOOR = 5;
     private const byte MAXIMUM_ACTIVE_FLOOR = 30;
     private const float TIME_PER_CONNECTOR = 2.5f;
-    private const float START_TIME = 90.0f;
+    private const float START_TIME = 30.0f;
 
     private Vector3 START_POSITION = new Vector3(0, 0, -0.1f);
 
