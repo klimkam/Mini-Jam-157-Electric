@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +12,7 @@ public class GameManager : MonoBehaviour
     private const byte MINIMUM_ACTIVE_FLOOR = 5;
     private const byte MAXIMUM_ACTIVE_FLOOR = 30;
     private const float TIME_PER_CONNECTOR = 2.5f;
-    private const float START_TIME = 60.0f;
+    private const float START_TIME = 90.0f;
 
     [SerializeField]
     private List<GameObject> _northConnectorWall;
@@ -23,6 +26,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> _floorTile;
 
+    [SerializeField] 
+    private GameObject _mainMenu;
+    
+    [SerializeField] 
+    private GameObject _pauseScreen;
+    
+    [FormerlySerializedAs("_highestScore")] [SerializeField] 
+    private TMP_Text _highestScoreText;
+    
+    [SerializeField] 
+    private TMP_Text _remainingTimeText;
+    
     [SerializeField]
     private int _activeConnectorAmount = 0;
     [SerializeField]
@@ -41,6 +56,7 @@ public class GameManager : MonoBehaviour
     private GameObject _targetColor;
 
     private bool _isPlaying;
+    private bool _isGamePaused = false;
     private float _remainingTime;
     private int _connectedLights = 0;
     private int _score = 0;
@@ -56,16 +72,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && _isPlaying)
         {
-            _isPlaying = false;
+            PauseGame();
+        }
 
-            //Render the Main Menu Panel
-            RenderMainMenu();
+        if (_isGamePaused && Input.GetKeyDown(KeyCode.Q))
+        {
+            PauseGame();
+            EndGame();
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            
             StartGame();
         }
 
@@ -73,7 +93,7 @@ public class GameManager : MonoBehaviour
         {
             _remainingTime -= Time.deltaTime;
 
-            Debug.Log(_remainingTime);
+            //Debug.Log(_remainingTime);
 
             if (_activeConnectorAmount == 0)
             {
@@ -92,7 +112,12 @@ public class GameManager : MonoBehaviour
                 _connectedLights = 0;
 
                 _remainingTime += _activeConnectorAmount * TIME_PER_CONNECTOR;
+                
+                Debug.Log(_score);
+
             }
+            
+            RenderTimer();
 
             if (_remainingTime < 0.1)
             {
@@ -103,6 +128,8 @@ public class GameManager : MonoBehaviour
 
     private void RenderMainMenu()
     {
+        _mainMenu.gameObject.SetActive(true);
+        _highestScoreText.text = _highscore.ToString();
         //TODO Walid do your magic here!
     }
 
@@ -110,6 +137,8 @@ public class GameManager : MonoBehaviour
     {
         _remainingTime = START_TIME;
         _score = 0;
+        
+        _mainMenu.gameObject.SetActive(false);
 
         _isPlaying = true;
     }
@@ -118,9 +147,33 @@ public class GameManager : MonoBehaviour
     {
         _isPlaying = false;
 
-        //Render Main Menu Panel
+        if (_score > _highscore)
+        {
+            _highscore = _score;
+        }
+        
+        RenderMainMenu();
     }
 
+    private void PauseGame()
+    {
+        _isGamePaused = !_isGamePaused;
+
+        Time.timeScale = Convert.ToInt32(!_isGamePaused);
+        _pauseScreen.SetActive(_isGamePaused);
+    }
+
+    private void RenderTimer()
+    {
+        int minutes = (int)_remainingTime / 60;
+        int seconds = (int)_remainingTime % 60;
+        string displayMinutes = (minutes < 10) ? "0" + minutes : minutes.ToString();
+        string displaySeconds = (seconds < 10) ? "0" + seconds : seconds.ToString();
+
+        _remainingTimeText.text = displayMinutes + ":" + displaySeconds;
+        
+    }
+    
     private void WallSequence()
     {
         ResetWall(_northConnectorWall);
