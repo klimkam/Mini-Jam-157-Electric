@@ -7,6 +7,7 @@ public class Line : MonoBehaviour {
     [SerializeField] private LineData lineData;
     [SerializeField] private ERelationType directionType;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Transform Hook;
     
     private Vector2 _grapplePoint, _grappleDistanceVector;
     private float _moveTime, _waveSize;
@@ -24,6 +25,7 @@ public class Line : MonoBehaviour {
             _playerController = transform.parent.GetComponent<PlayerController>();
         }
 
+        Hook.position = origin.position;
         _connection = null;
         _moveTime = 0;
         lineRenderer.positionCount = lineData.RopeDetailAmount;
@@ -113,7 +115,7 @@ public class Line : MonoBehaviour {
 
             Vector3 currentPos = new Vector3(currentPosition.x, currentPosition.y, -1);
             lineRenderer.SetPosition(i, currentPos);
-            //Player.Hook.transform.position = currentPosition;
+            Hook.transform.position = currentPosition;
 
             UpdateHookPosition(GetShootingDirection());
         }
@@ -122,7 +124,7 @@ public class Line : MonoBehaviour {
     private void UpdateHookPosition(Vector2 dir) {
         var direction = dir.normalized;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //Player.Hook.transform.eulerAngles = new Vector3(0, 0, angle - 90);
+        Hook.transform.eulerAngles = new Vector3(0, 0, angle - 90);
     }
 }
 
