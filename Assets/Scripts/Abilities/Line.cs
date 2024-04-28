@@ -30,18 +30,26 @@ public class Line : MonoBehaviour {
     }
     
     private void SetGrapplePoint() {
-        var hit = Physics2D.Raycast(origin.position, GetShootingDirection(), 100); //Arbitrary distance 
+        //var hit = Physics2D.Raycast(origin.position, GetShootingDirection(), 100, ~origin.transform.gameObject.layer); //Arbitrary distance 
 
-        if ((hit.transform != null) && (hit.transform.gameObject.layer != origin.gameObject.layer)) {
-            var objectHit = hit.transform.GetComponent<AnchorPoint>();
+        var hits = Physics2D.RaycastAll(origin.position, GetShootingDirection(), 100);
 
-            if (objectHit) {
-                objectHit.OnHook();
-                _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
+        if (hits.Length > 1) {
+            foreach (var hit in hits) {
+                if ((hit.transform != null) && (hit.transform.gameObject.layer != origin.gameObject.layer)) {
+                    var objectHit = hit.transform.GetComponent<AnchorPoint>();
+
+                    if (objectHit) {
+                        objectHit.OnHook();
+                        _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
+                        print("Hooked wall connector");
+                    }
+                    else {
+                        _grapplePoint = hit.collider.ClosestPoint(hit.point);
+                    }
+                }
             }
-            else {
-                _grapplePoint = hit.collider.ClosestPoint(hit.point);
-            }
+            
         }
         else {
             _grapplePoint = origin.position * (GetShootingDirection() * 10);
