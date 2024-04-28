@@ -12,7 +12,6 @@ public enum ERelationType {
     COUNT
 }
 
-
 public class AnchorPoint : MonoBehaviour
 {
     [SerializeField] public ERelationType anchorPointType = ERelationType.COUNT;
@@ -21,6 +20,10 @@ public class AnchorPoint : MonoBehaviour
         if (anchorPointType == ERelationType.COUNT) {
             Debug.LogError("Object with name " + gameObject.name + " and position " + transform.position + " doesn't have a anchor point type setup.");
         }
+    }
+
+    public void OnHook()
+    {
     }
 }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerTestingRopeShoot : MonoBehaviour
 {
-    public Line upLine;
+    
 
     private void Start()
     {
@@ -14,13 +14,6 @@ public class PlayerTestingRopeShoot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            upLine.OnRopeShoot();
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            upLine.OnRopeRetract();
-        }
+        
     }
 }

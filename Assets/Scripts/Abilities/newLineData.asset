@@ -12,4 +12,119 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cae2f38a82b87c44a30fd2f35fe732d, type: 3}
   m_Name: newLineData
   m_EditorClassIdentifier: 
-  _description: 
+  _description: JT Line Data
+  <RopeAnimationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.085277304
+      value: 0.1930896
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.18383154
+      value: -0.124233276
+      inSlope: 0.18672754
+      outSlope: 0.18672754
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.29812816
+    - serializedVersion: 3
+      time: 0.2736642
+      value: 0.18540198
+      inSlope: -0.13367322
+      outSlope: -0.13367322
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3670504
+      value: -0.093681514
+      inSlope: 0.04907089
+      outSlope: 0.04907089
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8810787
+    - serializedVersion: 3
+      time: 0.46283668
+      value: 0.08871555
+      inSlope: -0.16670364
+      outSlope: -0.16670364
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.21571265
+    - serializedVersion: 3
+      time: 0.6234574
+      value: -0.050507307
+      inSlope: 0.18175769
+      outSlope: 0.18175769
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.31902373
+    - serializedVersion: 3
+      time: 0.7528351
+      value: 0.06887886
+      inSlope: -0.0053478056
+      outSlope: -0.0053478056
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.23584196
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  <RopeProgressionCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <StartWazeSize>k__BackingField: 2
+  <RopeProgressionSpeed>k__BackingField: 8.02
+  <RopeDetailAmount>k__BackingField: 50
+  <StraightenLineSpeed>k__BackingField: 10
