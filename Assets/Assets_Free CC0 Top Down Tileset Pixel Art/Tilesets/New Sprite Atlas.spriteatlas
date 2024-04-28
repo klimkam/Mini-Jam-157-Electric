@@ -52,6 +52,7 @@ SpriteAtlas:
     packedSpriteRenderDataKeys:
     - a1adf799c8c33f94d891e8c4aa257ea4: -1338927583
     - a1adf799c8c33f94d891e8c4aa257ea4: -575513727
+    - a1adf799c8c33f94d891e8c4aa257ea4: -889412474
     - a1adf799c8c33f94d891e8c4aa257ea4: 1892236960
     - a1adf799c8c33f94d891e8c4aa257ea4: -1300664548
     - a1adf799c8c33f94d891e8c4aa257ea4: 1953944808
@@ -126,6 +127,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: -1338927583, guid: a1adf799c8c33f94d891e8c4aa257ea4, type: 3}
   - {fileID: -575513727, guid: a1adf799c8c33f94d891e8c4aa257ea4, type: 3}
+  - {fileID: -889412474, guid: a1adf799c8c33f94d891e8c4aa257ea4, type: 3}
   - {fileID: 1892236960, guid: a1adf799c8c33f94d891e8c4aa257ea4, type: 3}
   - {fileID: -1300664548, guid: a1adf799c8c33f94d891e8c4aa257ea4, type: 3}
   - {fileID: 1953944808, guid: a1adf799c8c33f94d891e8c4aa257ea4, type: 3}
@@ -199,6 +201,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - tileset_green_71
   - tileset_green_70
+  - tileset_green_72
   - tileset_green_19
   - tileset_green_18
   - tileset_green_17
