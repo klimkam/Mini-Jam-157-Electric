@@ -8,6 +8,7 @@ public class Line : MonoBehaviour {
     [SerializeField] private ERelationType directionType;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Transform Hook;
+    [SerializeField] private SoundManager _soundManager;
     
     private Vector2 _grapplePoint, _grappleDistanceVector;
     private float _moveTime, _waveSize;
@@ -56,7 +57,7 @@ public class Line : MonoBehaviour {
                     if (objectHit) {
                         _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
                         _connection = objectHit;
-                        print("Hooked wall connector");
+                        _soundManager.PlayThrowRope();
                         _grappleDistanceVector = _grapplePoint - (Vector2)origin.position;
                         ShootRope();
                         return;
