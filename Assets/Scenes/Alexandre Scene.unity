@@ -2094,7 +2094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press "Q" to quit
+  m_text: 'Press "Q" to go to the main menu
 
 
     Press "ESC" to continue playing'
