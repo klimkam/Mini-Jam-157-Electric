@@ -221,8 +221,10 @@ public class GameManager : MonoBehaviour
             _score += _activeConnectorAmount;
             _activeConnectorAmount = 0;
             ResetAllWalls();
-
-            _player.GetComponent<PlayerController>().DeactivateAllLines();
+            PlayerController _playerController = _player.GetComponent<PlayerController>();
+            
+            _playerController.DeactivateAllLines();
+            _playerController.CompleteConnections();
         }
     }
 
