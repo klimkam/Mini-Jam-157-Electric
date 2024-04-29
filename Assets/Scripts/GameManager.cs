@@ -91,10 +91,14 @@ public class GameManager : MonoBehaviour
             PauseGame();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape) && !_isPlaying) { 
+            Application.Quit();
+        }
+
         if (_isGamePaused && Input.GetKeyDown(KeyCode.Q))
         {
-            PauseGame();
             EndGame();
+            PauseGame();
         }
 
         if (Input.GetKeyDown(KeyCode.Return) && !_isPlaying)
