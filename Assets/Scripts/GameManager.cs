@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private const byte MAXIMUM_ACTIVE_FLOOR = 30;
     private const float TIME_PER_CONNECTOR = 1.0f;
     private const float START_TIME = 30.0f;
+    private const byte FLOOR_SIZE = 11;
 
     private Vector3 START_POSITION = new Vector3(0, 0, -0.1f);
 
@@ -66,12 +67,15 @@ public class GameManager : MonoBehaviour
     private int _connectedLights = 0;
     private int _score = 0;
     private int _highscore = 0;
+    private float _floorTimer = 0.0f;
 
+   
     // Start is called before the first frame update
     void Start()
     {
         //Render the Main Menu Panel
         RenderMainMenu();
+        
     }
 
     // Update is called once per frame
@@ -154,25 +158,43 @@ public class GameManager : MonoBehaviour
     private void Playing()
     {
         _remainingTime -= Time.deltaTime;
+        _floorTimer += Time.deltaTime;
+
+        if (_floorTimer >= 4.0f && _floorTimer < 5.0f)
+        {
+            ChargeUpRandomFloorTile();
+        }
+
+        if (_floorTimer >= 5.0f && _floorTimer < 6.0f)
+        {
+            BurstActiveFloorTile();
+        }
+
+        if (_floorTimer >= 6.0f)
+        {
+            TurnOffActiveFloorTile();
+            _floorTimer -= 6.0f;
+        }
 
         if (_activeConnectorAmount == 0)
         {
             WallSequence();
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            _connectedLights++;
-        }
-
         CalculateConnections();
 
+        RenderTiles();
         RenderScoreAndTimer();
 
         if (_remainingTime < 0.1)
         {
             EndGame();
         }
+    }
+    
+    public List<GameObject> GetGameField()
+    {
+        return _floorTile;
     }
 
     private void CalculateConnections()
@@ -259,7 +281,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*private void RenderTiles()
+    private void RenderTiles()
     {
         List<FloorCell> floorCells = GetActiveFloorTile();
 
@@ -267,7 +289,7 @@ public class GameManager : MonoBehaviour
         {
             RenderTile(_floorTile[floorCell.GetXPos() * FLOOR_SIZE + floorCell.GetYPos()]);
         }
-    }*/
+    }
 
     private void RenderTile(GameObject tile)
     {
@@ -385,7 +407,7 @@ public class GameManager : MonoBehaviour
      * Begin the sequence
      * Charge random tiles through the floor
      */
-    /*public void ChargeUpRandomFloorTile()
+    public void ChargeUpRandomFloorTile()
     {
         SetRandomActiveFloorTile();
 
@@ -394,11 +416,12 @@ public class GameManager : MonoBehaviour
             int line = Random.Range(0, FLOOR_SIZE);
             int row = Random.Range(0, FLOOR_SIZE);
 
-            floor[line, row].ChargeFloor();
+            var floor = _floorTile[line * 11 + row].GetComponent<FloorCell>();
+            floor.ChargeFloor();
         }
-    }*/
+    }
 
-    /*public void BurstActiveFloorTile()
+    public void BurstActiveFloorTile()
     {
         if (_activeFloorTiles == 0)
         {
@@ -409,18 +432,18 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 0; j < FLOOR_SIZE; j++)
             {
-                if (floor[i, j].GetFloorState() == EFloorState.Charging)
+                if (_floorTile[i * 11 + j].GetComponent<FloorCell>().GetFloorState() == EFloorState.Charging)
                 {
-                    floor[i, j].BurstFloor();
+                    _floorTile[i * 11 + j].GetComponent<FloorCell>().BurstFloor();
                 }
             }
         }
-    }*/
+    }
 
     /*
      * Reset all the active floor tile
      */
-    /*public void TurnOffActiveFloorTile()
+    public void TurnOffActiveFloorTile()
     {
         if (_activeFloorTiles == 0)
         {
@@ -431,21 +454,21 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 0; j < FLOOR_SIZE; j++)
             {
-                if (floor[i, j].GetFloorState() == EFloorState.Burst)
+                if (_floorTile[i * 11 + j].GetComponent<FloorCell>().GetFloorState() == EFloorState.Burst)
                 {
-                    floor[i, j].DischargeFloor();
+                    _floorTile[i * 11 + j].GetComponent<FloorCell>().DischargeFloor();
                 }
             }
         }
 
         ResetActiveFloorTile();
-    }*/
+    }
 
     /*
      * Return a list of FloorCell that are active
      * Their _xPos and _yPos can be used to match with the tilemap or grid system
      */
-    /*public List<FloorCell> GetActiveFloorTile()
+    public List<FloorCell> GetActiveFloorTile()
     {
         List<FloorCell> list = new();
 
@@ -453,32 +476,13 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 0; j < FLOOR_SIZE; j++)
             {
-                if (floor[i, j].IsActive())
+                if (_floorTile[i * 11 + j].GetComponent<FloorCell>().IsActive())
                 {
-                    list.Add(floor[i, j]);
+                    list.Add(_floorTile[i * 11 + j].GetComponent<FloorCell>());
                 }
             }
         }
 
         return list;
-    }*/
-
-    /*
-     * Return the list of colors that can be used to know which color the connectors should be
-     * Direction 0 represent the north walls
-     * Direction 1 represent the south walls
-     * Direction 2 represent the west walls
-     * Direction 3 represent the east walls
-     */
-    /*public List<Color> GetWallConnectors(int direction)
-    {
-        List<Color> list = new();
-
-        for (int j = 0; j < CONNECTOR_PER_WALL; j++)
-        {
-            list.Add(wall[direction, j].GetColor());
-        }
-
-        return list;
-    }*/
+    }
 }

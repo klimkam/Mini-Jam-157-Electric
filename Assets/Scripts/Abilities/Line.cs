@@ -7,12 +7,13 @@ public class Line : MonoBehaviour {
     [SerializeField] private LineData lineData;
     [SerializeField] private ERelationType directionType;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Transform Hook;
     
     private Vector2 _grapplePoint, _grappleDistanceVector;
     private float _moveTime, _waveSize;
     private bool _canGrapple, _canStartRopeAnimation;
 
-    
+    private AnchorPoint _connection;
     
     private void OnEnable() {
         Initialize();
@@ -23,7 +24,9 @@ public class Line : MonoBehaviour {
         if (_playerController == null) {
             _playerController = transform.parent.GetComponent<PlayerController>();
         }
-        
+
+        Hook.position = origin.position;
+        _connection = null;
         _moveTime = 0;
         lineRenderer.positionCount = lineData.RopeDetailAmount;
         _waveSize = lineData.StartWazeSize;
@@ -52,7 +55,7 @@ public class Line : MonoBehaviour {
 
                     if (objectHit) {
                         _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
-                        objectHit.OnHook(_playerController);
+                        _connection = objectHit;
                         print("Hooked wall connector");
                         _grappleDistanceVector = _grapplePoint - (Vector2)origin.position;
                         ShootRope();
@@ -91,9 +94,16 @@ public class Line : MonoBehaviour {
 
     private void DrawRope() {
         DrawRopeWaves();
+
+        
         if (!(_waveSize > 0)) return;
         
         _waveSize -= Time.deltaTime * lineData.StraightenLineSpeed;
+        
+        if ((Vector2)lineRenderer.GetPosition(lineData.RopeDetailAmount - 1) == _grapplePoint) {
+            _connection.OnHook(_playerController);
+        }
+
     }
     
     private void DrawRopeWaves() {
@@ -105,7 +115,7 @@ public class Line : MonoBehaviour {
 
             Vector3 currentPos = new Vector3(currentPosition.x, currentPosition.y, -1);
             lineRenderer.SetPosition(i, currentPos);
-            //Player.Hook.transform.position = currentPosition;
+            Hook.transform.position = currentPosition;
 
             UpdateHookPosition(GetShootingDirection());
         }
@@ -114,7 +124,7 @@ public class Line : MonoBehaviour {
     private void UpdateHookPosition(Vector2 dir) {
         var direction = dir.normalized;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //Player.Hook.transform.eulerAngles = new Vector3(0, 0, angle - 90);
+        Hook.transform.eulerAngles = new Vector3(0, 0, angle - 90);
     }
 }
 
