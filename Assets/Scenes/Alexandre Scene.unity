@@ -1664,6 +1664,7 @@ MonoBehaviour:
   - {fileID: 1271464212}
   _mainMenu: {fileID: 1210607431}
   _pauseScreen: {fileID: 583366074}
+  _soundManager: {fileID: 178729151}
   _player: {fileID: 1203308115}
   _highestScoreText: {fileID: 1156690432}
   _currentScoreText: {fileID: 833506572}
@@ -1804,6 +1805,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3688b4be654d2a4c8ae160256d8b3b9, type: 3}
+--- !u!114 &178729151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 634610966717238585, guid: d3688b4be654d2a4c8ae160256d8b3b9, type: 3}
+  m_PrefabInstance: {fileID: 178729150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5a7fdffb3fe347b997ec37b7b83ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &180881002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _electrocutionTile: {fileID: 7133059470494080257, guid: 55e05ab738589da45857221be1ed0be4, type: 3}
   _gameManager: {fileID: 175530814}
+  _randomTile: {fileID: 0}
 --- !u!4 &586063585
 Transform:
   m_ObjectHideFlags: 0
@@ -16053,6 +16066,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1076786563593210163, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245237281293777656, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2889053169927415349, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.25
@@ -16093,13 +16114,25 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3617160538483202659, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 178729151}
     - target: {fileID: 3674795343181566407, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3882893727037055611, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 178729151}
     - target: {fileID: 4506379196916410306, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_SortingOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793036681876600264, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5051244360374086071, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_SortingOrder
@@ -16109,6 +16142,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5792399395430960133, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154920256953826385, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 178729151}
     - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: speed
       value: 50
@@ -16129,6 +16170,10 @@ PrefabInstance:
       propertyPath: dashDuration
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6889517688662739844, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 178729151}
     - target: {fileID: 7044427214834612468, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: m_Size.x
       value: 9.969999
