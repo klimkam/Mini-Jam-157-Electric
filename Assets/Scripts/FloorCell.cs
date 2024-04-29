@@ -12,7 +12,7 @@ public class FloorCell : MonoBehaviour
         _yPos = yPos;
         _floorState = EFloorState.Off;
     }
-
+    
     public int GetXPos()
     {
         return _xPos;

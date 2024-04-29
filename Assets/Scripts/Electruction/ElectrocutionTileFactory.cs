@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ElectrocutionTileFactory : MonoBehaviour
 {
-    [SerializeField] 
-    private GameObject _electrocutionTile;
+    const int MINTILESTOSPAWN = 5;
+    const int MAXTILESTOSPAWN = 30;
 
     [SerializeField] 
-    private GameManager _gameManager;
+    GameObject _electrocutionTile;
 
-    private List<GameObject> _gameField;
+    [SerializeField] 
+    GameManager _gameManager;
+
+    List<GameObject> _gameField;
+    int _howMuchTilesToSpawn = MINTILESTOSPAWN;
 
     [SerializeField]
     GameObject _randomTile;
@@ -28,8 +32,12 @@ public class ElectrocutionTileFactory : MonoBehaviour
         StartCoroutine(SpawnNewTile());
     }
 
-    void PickRandom() {
+    void PickRandomTile() {
         RandomField = _gameField[Random.Range(0, _gameField.Count - 1)];
+    }
+
+    void GetHowMuchTiles() {
+        _howMuchTilesToSpawn = Random.Range(MINTILESTOSPAWN, MAXTILESTOSPAWN);
     }
 
     void GenerateElectrocutionTile()
@@ -37,11 +45,14 @@ public class ElectrocutionTileFactory : MonoBehaviour
         Instantiate(_electrocutionTile, RandomField.transform);
     }
 
-    private IEnumerator SpawnNewTile() {
-
+    IEnumerator SpawnNewTile() {
         while (true) { 
-            yield return new WaitForSeconds(1);
-            PickRandom();
+            yield return new WaitForSeconds(5);
+
+            GetHowMuchTiles();
+            for (int i = 0; i < _howMuchTilesToSpawn; i++) {
+                PickRandomTile();
+            }
         }
     }
 }
