@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [TextArea][SerializeField] private string description = "Be wary, the line array order is case dependant. 0: Up, 1: Down, 2: Left, 3: Right";
     [SerializeField] private Line[] lines = new Line[4];
     [SerializeField] float _lockTime = 1f;
+    [SerializeField]
+    Animator _animator;
 
     private bool _lockPlayerMovement = false;
 
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
         direction.Normalize();
 
-        _rigidbody2D.velocity = speed * 10 * Time.deltaTime * (Vector3)direction;
+        _rigidbody2D.velocity = speed * 10 * (Vector3)direction * Time.deltaTime;
     }
 
     private void HandleRopeShooting()
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         _lockPlayerMovement = true;
         _rigidbody2D.velocity = Vector2.zero;
+        _animator.SetBool("isElectrocuted", true);
         StartCoroutine(UnlockPlayerMovement());
     }
 
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(_lockTime);
         _lockPlayerMovement = false;
+        _animator.SetBool("isElectrocuted", false);
     }
 
     public void DeactivateAllLines()
