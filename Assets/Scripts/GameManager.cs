@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private const byte MAXIMUM_ACTIVE_FLOOR = 30;
     private const float TIME_PER_CONNECTOR = 1.0f;
     private const float START_TIME = 30.0f;
+    private const string GAME_OVER = "GameOver";
 
     private Vector3 START_POSITION = new Vector3(0, 0, -0.1f);
 
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
     private GameObject _mainMenu;
     [SerializeField]
     private GameObject _pauseScreen;
+    
+    [SerializeField]
+    private SoundManager _soundManager;
 
     [SerializeField]
     private GameObject _player;
@@ -101,6 +105,8 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        _soundManager.PlayMusic();
+        
         _player.transform.position = START_POSITION;
 
         _remainingTime = START_TIME;
@@ -120,7 +126,8 @@ public class GameManager : MonoBehaviour
         {
             _highscore = _score;
         }
-
+        _soundManager.StopMusic();
+        
         RenderMainMenu();
     }
 
@@ -171,8 +178,14 @@ public class GameManager : MonoBehaviour
 
         if (_remainingTime < 0.1)
         {
-            EndGame();
+            GameOver();
         }
+    }
+
+    private void GameOver()
+    {
+        _soundManager.PlaySFX(GAME_OVER);
+        EndGame();
     }
 
     private void CalculateConnections()

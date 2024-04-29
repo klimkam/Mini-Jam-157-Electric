@@ -7,11 +7,13 @@ public class Line : MonoBehaviour {
     [SerializeField] private LineData lineData;
     [SerializeField] private ERelationType directionType;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private SoundManager _soundManager;
     
     private Vector2 _grapplePoint, _grappleDistanceVector;
     private float _moveTime, _waveSize;
     private bool _canGrapple, _canStartRopeAnimation;
-
+    private const string THROW_ROPE = "ThrowRope";
+    private bool _muteFirstPlay = true;
     
     
     private void OnEnable() {
@@ -42,18 +44,22 @@ public class Line : MonoBehaviour {
         //var hit = Physics2D.Raycast(origin.position, GetShootingDirection(), 100, ~origin.transform.gameObject.layer); //Arbitrary distance 
 
         var hits = Physics2D.RaycastAll(origin.position, GetShootingDirection(), 100);
-
+        
         Debug.DrawLine(origin.position,GetShootingDirection() + (Vector2)origin.position,Color.magenta);
         
         if (hits.Length > 1) {
             foreach (var hit in hits) {
                 if ((hit.transform != null) && (hit.transform.gameObject.layer != origin.gameObject.layer) && hit.transform.gameObject.layer != LayerMask.NameToLayer("Walls")) {
                     var objectHit = hit.transform.GetComponent<AnchorPoint>();
-
+                    if (!_muteFirstPlay)
+                    {
+                        _soundManager.PlayThrowRope();
+                    }
+                    _muteFirstPlay = false;
                     if (objectHit) {
                         _grapplePoint = objectHit.transform.position; //TODO Change it to match the center or wanted position of the anchor/wall connector
                         objectHit.OnHook(_playerController);
-                        print("Hooked wall connector");
+                        
                         _grappleDistanceVector = _grapplePoint - (Vector2)origin.position;
                         ShootRope();
                         return;
@@ -78,9 +84,11 @@ public class Line : MonoBehaviour {
     }
 
     private void ShootRope() {
+        
         LinePointsToFirePoint();
         lineRenderer.enabled = true;
         _canStartRopeAnimation = true;
+
     }
 
     private void LinePointsToFirePoint() {
@@ -90,6 +98,7 @@ public class Line : MonoBehaviour {
     }
 
     private void DrawRope() {
+        
         DrawRopeWaves();
         if (!(_waveSize > 0)) return;
         
