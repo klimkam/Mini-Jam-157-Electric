@@ -1,20 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ElectricTile : MonoBehaviour
 {
-    private float _lifeTime = 1f;
+    [SerializeField]
+    PlayerController _player;
+    private float _lifeTime = 2f;
 
     private void Start()
     {
-
-
         StartCoroutine(DeleteTile());
     }
-    void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Pesun");
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            _player.DeactivateAllLines();
+            _player.LockPlayerMovement();
+        }
     }
 
     IEnumerator DeleteTile()
