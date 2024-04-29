@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [TextArea][SerializeField] private string description = "Be wary, the line array order is case dependant. 0: Up, 1: Down, 2: Left, 3: Right";
     [SerializeField] private Line[] lines = new Line[4];
+    [SerializeField] float _lockTime = 1f;
 
     private bool _lockPlayerMovement = false;
 
@@ -43,10 +45,12 @@ public class PlayerController : MonoBehaviour
     public void LockPlayerMovement()
     {
         _lockPlayerMovement = true;
+        StartCoroutine(UnlockPlayerMovement());
     }
 
-    public void UnlockPlayerMovement()
+    public IEnumerator UnlockPlayerMovement()
     {
+        yield return new WaitForSeconds(_lockTime);
         _lockPlayerMovement = false;
     }
 
