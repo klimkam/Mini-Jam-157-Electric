@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public void LockPlayerMovement()
     {
         _lockPlayerMovement = true;
+        _rigidbody2D.velocity = Vector2.zero;
         StartCoroutine(UnlockPlayerMovement());
     }
 
