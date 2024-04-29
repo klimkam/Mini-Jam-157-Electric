@@ -49,19 +49,4 @@ public class FloorCell : MonoBehaviour
     {
         return _floorState == EFloorState.Charging || _floorState == EFloorState.Burst;
     }
-
-    private void Start()
-    {
-        SpawnNewTile();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Pesun");
-    }
-
-    private IEnumerator SpawnNewTile()
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(gameObject);
-    }
 }
