@@ -37,23 +37,24 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(string name)
     {
-        if (!sfxSource.isPlaying) sfxSource.PlayOneShot(audioClips[name]);
+        //if (!sfxSource.isPlaying) 
+            sfxSource.PlayOneShot(audioClips[name]);
     }
     
     public void PlayThrowRope()
     {
-        if (_readyToPlay)
+        //if (_readyToPlay)
             
             //(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) 
             //|| Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)))
-        {
+        //{
             sfxSource.PlayOneShot(audioClips[THROW_ROPE]);
             _readyToPlay = false;
-        }
-        else
-        {
-            Debug.Log("not");
-        }
+       // }
+       // else
+        //{
+         //   Debug.Log("not");
+        //}
             
             
     }
