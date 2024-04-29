@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     private GameObject _mainMenu;
     [SerializeField]
     private GameObject _pauseScreen;
+    [SerializeField]
+    private SoundManager _soundManager;
 
     [SerializeField]
     private GameObject _player;
@@ -127,7 +129,8 @@ public class GameManager : MonoBehaviour
         {
             _highscore = _score;
         }
-
+        _soundManager.StopMusic();
+        
         RenderMainMenu();
     }
 
@@ -160,6 +163,7 @@ public class GameManager : MonoBehaviour
 
     private void Playing()
     {
+        _soundManager.PlayMusic();
         _remainingTime -= Time.deltaTime;
         _floorTimer += Time.deltaTime;
 
@@ -191,9 +195,16 @@ public class GameManager : MonoBehaviour
 
         if (_remainingTime < 0.1)
         {
-            EndGame();
+            GameOver();
         }
     }
+
+    private void GameOver()
+        {
+            _soundManager.PlaySFX("GameOver");
+            EndGame();
+        }
+    
     
     public List<GameObject> GetGameField()
     {
