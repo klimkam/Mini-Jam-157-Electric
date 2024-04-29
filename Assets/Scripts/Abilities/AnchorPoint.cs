@@ -14,7 +14,8 @@ public enum ERelationType {
 public class AnchorPoint : MonoBehaviour {
     [SerializeField] public ERelationType anchorPointType = ERelationType.COUNT;
     [SerializeField] private WallConnector connector;
-
+    [SerializeField] private SoundManager _soundManager;
+    
     private void OnEnable() {
         if (anchorPointType == ERelationType.COUNT) {
             Debug.LogError("Object with name " + gameObject.name + " and position " + transform.position + " doesn't have a anchor point type setup.");
@@ -27,6 +28,7 @@ public class AnchorPoint : MonoBehaviour {
         if (connector.GetColor() != Color.white) {
             print(connector.GetColor() + " " + connector.transform.parent.name);
             connector.SetConnectionState(true);
+            _soundManager.PlaySFX("PlugIntoWall");
 
             return;
         }
