@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private SoundManager _soundManager;
 
     [TextArea][SerializeField] private string description = "Be wary, the line array order is case dependant. 0: Up, 1: Down, 2: Left, 3: Right";
     [SerializeField] private Line[] lines = new Line[4];
@@ -56,6 +57,15 @@ public class PlayerController : MonoBehaviour
 
     public void DeactivateAllLines()
     {
+        bool playRetract = false;
+        
+        foreach (Line line in lines)
+        {
+            if (line.gameObject.activeInHierarchy) playRetract = true;
+        }
+        
+        if (playRetract) _soundManager.PlaySFX("RetractRope");
+        
         gameManager.ResetActiveWallConnectors();
         foreach (Line line in lines)
         {

@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        _soundManager.PlayMusic();
         _player.transform.position = START_POSITION;
 
         _remainingTime = START_TIME;
@@ -163,7 +164,7 @@ public class GameManager : MonoBehaviour
 
     private void Playing()
     {
-        _soundManager.PlayMusic();
+        
         _remainingTime -= Time.deltaTime;
         _floorTimer += Time.deltaTime;
 
