@@ -345,7 +345,7 @@ SpriteRenderer:
   m_Size: {x: 18.48, y: 17.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &41333056
@@ -1000,6 +1000,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
       objectReference: {fileID: 0}
@@ -1456,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
@@ -2382,6 +2390,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 1
       objectReference: {fileID: 0}
@@ -2470,6 +2482,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 1
@@ -2777,6 +2793,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 1
@@ -4784,7 +4804,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.054901965, g: 0.40000004, b: 0.121568635, a: 0}
+  m_BackGroundColor: {r: 0.7042542, g: 0.7735849, b: 0.7176476, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5106,6 +5126,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
@@ -5688,6 +5712,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 1
@@ -6906,6 +6934,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
@@ -9282,6 +9314,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 0
@@ -11804,6 +11840,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 0
       objectReference: {fileID: 0}
@@ -12862,6 +12902,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
       objectReference: {fileID: 0}
@@ -13334,6 +13378,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 0
@@ -14943,6 +14991,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
       objectReference: {fileID: 0}
@@ -15245,6 +15297,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
       objectReference: {fileID: 0}
@@ -15490,6 +15546,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
       objectReference: {fileID: 0}
@@ -15635,6 +15695,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 110145619}
     - target: {fileID: 6503543874099191228, guid: 8e2b481cc4ee2cd4abaee112e20bde91, type: 3}
       propertyPath: anchorPointType
       value: 3
