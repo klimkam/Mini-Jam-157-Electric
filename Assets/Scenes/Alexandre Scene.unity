@@ -16517,8 +16517,12 @@ PrefabInstance:
       objectReference: {fileID: 110145619}
     - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: speed
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1351234878}
     - target: {fileID: 6831407332828466079, guid: 11d2bea0a149ebf4f939d15c938accf1, type: 3}
       propertyPath: dashSpeed
       value: 60
