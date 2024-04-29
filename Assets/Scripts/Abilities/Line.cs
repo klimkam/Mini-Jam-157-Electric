@@ -95,7 +95,6 @@ public class Line : MonoBehaviour {
 
     private void DrawRope() {
         DrawRopeWaves();
-
         
         if (!(_waveSize > 0)) return;
         
