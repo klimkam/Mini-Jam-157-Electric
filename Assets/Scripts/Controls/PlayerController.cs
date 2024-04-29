@@ -44,13 +44,15 @@ public class PlayerController : MonoBehaviour
         if (keyMapData.ropeLeftKey.IsKeyDownThisFrame()) lines[2].gameObject.SetActive(true);
         if (keyMapData.ropeRightKey.IsKeyDownThisFrame()) lines[3].gameObject.SetActive(true);
     }
-
+    
     public void LockPlayerMovement()
     {
         _lockPlayerMovement = true;
         _rigidbody2D.velocity = Vector2.zero;
         _animator.SetBool("isElectrocuted", true);
+        Shock();
         StartCoroutine(UnlockPlayerMovement());
+
     }
 
     public IEnumerator UnlockPlayerMovement()
@@ -60,6 +62,15 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("isElectrocuted", false);
     }
 
+    public void Shock()
+    {
+        _soundManager.PlaySFX("ElecticShock");
+    }
+    
+    public void CompleteConnections()
+    {
+        _soundManager.PlaySFX("Charged");
+    }
     public void DeactivateAllLines()
     {
         bool playRetract = false;

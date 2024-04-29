@@ -19,7 +19,7 @@ public class ElectricTile : MonoBehaviour
         StartCoroutine(ChargeTile());
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!_isCharged) { return; }
 
