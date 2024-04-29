@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8843002652931560703}
   - component: {fileID: 3722271326033933391}
   - component: {fileID: -3131115940302037737}
+  - component: {fileID: 8555093031885924738}
   m_Layer: 0
   m_Name: ElectrocutionTile
   m_TagString: Untagged
@@ -97,7 +98,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 529985070, guid: 537f1117eb278704c9411bf54ee7d826, type: 3}
+  m_Sprite: {fileID: -1474839909, guid: 24eab60be9d4e4e41b2088b5404844ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,18 +141,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.54564095, y: -0.3637612}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18.48, y: 17.23}
+    oldSize: {x: 12.75, y: 12.14}
     newSize: {x: 18.48, y: 17.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18.15, y: 18.3}
+  m_Size: {x: 10.614958, y: 11.648378}
   m_EdgeRadius: 0
 --- !u!114 &-3131115940302037737
 MonoBehaviour:
@@ -163,5 +164,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a87e7a3233b86324fa31022e0863e1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8555093031885924738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133059470494080257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b59593713981c4d851c07b54e7b16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
