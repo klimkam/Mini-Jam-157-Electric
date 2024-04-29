@@ -1,3 +1,4 @@
+using QFSW.QC;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+[CommandPrefix("gameManager.")]
 public class GameManager : MonoBehaviour
 {
     private const byte CONNECTOR_PER_WALL = 5;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     private bool _isPlaying;
     private bool _isGamePaused = false;
+    [Command("time")]
     private float _remainingTime;
     private int _connectedLights = 0;
     private int _score = 0;
@@ -210,6 +213,8 @@ public class GameManager : MonoBehaviour
             _player.GetComponent<PlayerController>().DeactivateAllLines();
         }
     }
+
+    
 
     private void WallSequence()
     {

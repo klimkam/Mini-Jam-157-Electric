@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FloorCell : MonoBehaviour
@@ -12,7 +14,7 @@ public class FloorCell : MonoBehaviour
         _yPos = yPos;
         _floorState = EFloorState.Off;
     }
-
+    
     public int GetXPos()
     {
         return _xPos;
@@ -46,5 +48,20 @@ public class FloorCell : MonoBehaviour
     public bool IsActive()
     {
         return _floorState == EFloorState.Charging || _floorState == EFloorState.Burst;
+    }
+
+    private void Start()
+    {
+        SpawnNewTile();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Pesun");
+    }
+
+    private IEnumerator SpawnNewTile()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }
