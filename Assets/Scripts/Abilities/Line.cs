@@ -13,6 +13,7 @@ public class Line : MonoBehaviour {
     private Vector2 _grapplePoint, _grappleDistanceVector;
     private float _moveTime, _waveSize;
     private bool _canGrapple, _canStartRopeAnimation;
+    private bool _lineStraight;
 
     private AnchorPoint _connection;
     
@@ -26,6 +27,7 @@ public class Line : MonoBehaviour {
             _playerController = transform.parent.GetComponent<PlayerController>();
         }
 
+        _lineStraight = false;
         Hook.position = origin.position;
         _connection = null;
         _moveTime = 0;
@@ -100,8 +102,10 @@ public class Line : MonoBehaviour {
         
         _waveSize -= Time.deltaTime * lineData.StraightenLineSpeed;
         
-        if ((Vector2)lineRenderer.GetPosition(lineData.RopeDetailAmount - 1) == _grapplePoint) {
+        if ((Vector2)lineRenderer.GetPosition(lineData.RopeDetailAmount - 1) == _grapplePoint && !_lineStraight) {
             _connection.OnHook(_playerController);
+            _lineStraight = true;
+
         }
 
     }
