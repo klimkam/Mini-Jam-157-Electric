@@ -13,7 +13,6 @@ public class SoundManager : MonoBehaviour
 
     private const string SFX = "SFX";
     private const string THROW_ROPE = "ThrowRope";
-    private bool _readyToPlay = true;
 
     Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
     
@@ -27,36 +26,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (!sfxSource.isPlaying && !_readyToPlay)
-        {
-            _readyToPlay = true;
-        }
-    }
-
     public void PlaySFX(string name)
     {
-        //if (!sfxSource.isPlaying) 
             sfxSource.PlayOneShot(audioClips[name]);
     }
     
     public void PlayThrowRope()
     {
-        //if (_readyToPlay)
-            
-            //(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) 
-            //|| Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)))
-        //{
             sfxSource.PlayOneShot(audioClips[THROW_ROPE]);
-            _readyToPlay = false;
-       // }
-       // else
-        //{
-         //   Debug.Log("not");
-        //}
-            
-            
     }
     
     public void PlayMusic()
